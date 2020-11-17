@@ -1,5 +1,7 @@
-FROM pastvu/pastvu AS ru
-FROM pastvu/pastvu:en AS en
+ARG TAG=latest
+ARG TAG_EN=en
+FROM pastvu/pastvu:${TAG} AS ru
+FROM pastvu/pastvu:${TAG_EN} AS en
 
 FROM nginx
 COPY --from=en /code/views /views
