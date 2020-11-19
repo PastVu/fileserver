@@ -36,10 +36,10 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: pastvu/nginx:{{ github.event.inputs.tag }}
+          tags: pastvu/nginx:${{ github.event.inputs.tag }}
           build-args: |
-            TAG={{ github.event.inputs.tag }}
-            TAG_EN={{ github.event.inputs.tag_en }}
+            TAG=${{ github.event.inputs.tag }}
+            TAG_EN=${{ github.event.inputs.tag_en }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
