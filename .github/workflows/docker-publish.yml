@@ -6,10 +6,6 @@ on:
       tag:
         required: true
         default: master
-      tag_en:
-        required: true
-        default: en
-
 
 jobs:
 
@@ -39,7 +35,6 @@ jobs:
           tags: pastvu/nginx:${{ github.event.inputs.tag }}
           build-args: |
             TAG=${{ github.event.inputs.tag }}
-            TAG_EN=${{ github.event.inputs.tag_en }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
